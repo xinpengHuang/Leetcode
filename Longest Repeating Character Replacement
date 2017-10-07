@@ -2,12 +2,11 @@
 ```
 /*
 Description
-Given a string that consists of only uppercase English letters, you can replace any letter in the string 
-with another letter at most k times. Find the length of a longest substring containing all repeating letters 
-you can get after performing the above operations.
+Find the length of the longest substring T of a given string (consists of lowercase letters only)
+such that every character in T appears no less than k times.
 
 Thoughts
-Solution 1: O(N) time and O(1) space, using sliding window with two pointers 
+Solution 1: O(NlgN - N^2) time and O(?) space, using divide and conquer
 */
 
 // Solution 1
