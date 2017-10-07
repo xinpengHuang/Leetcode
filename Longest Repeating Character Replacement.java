@@ -10,6 +10,8 @@ Solution 1: O(N) time and O(1) space, using sliding window with two pointers
 */
 
 // Solution 1
+// Since we are only interested in the longest valid substring, our sliding windows need not shrink, even if a window may cover
+// an invalid substring. We either grow the window by appending one char on the right, or shift the whole window to the right by one.
 class Solution {
     public int characterReplacement(String s, int k) {
         int start = 0;
