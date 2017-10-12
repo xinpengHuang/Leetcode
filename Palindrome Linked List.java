@@ -8,6 +8,7 @@ Could you do it in O(n) time and O(1) space?
 
 Thoughts
 Solution 1: O(N) time and O(N) stack space, using recursion.
+Solution 2: O(N) time and O(1) space, using list reversion.
 */
 
 // Solution 1
