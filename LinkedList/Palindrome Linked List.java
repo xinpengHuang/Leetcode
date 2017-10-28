@@ -14,11 +14,10 @@ Solution 2: O(N) time and O(1) space, using list reversion.
 // Solution 1
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        ListNode cur = head;
-        int len = findLength(cur);
+        int len = findLength(head);
         boolean[] sign = new boolean[1];
         sign[0] = true;
-        isPalindrome(head, len / 2, len % 2 == 0, sign);
+        isPalindrome(head, len, sign);
         return sign[0];
     }
     
@@ -31,11 +30,14 @@ class Solution {
         return len;
     }
     
-    private ListNode isPalindrome(ListNode cur, int len, boolean lengthIsEven, boolean[] sign) {
+    private ListNode isPalindrome(ListNode cur, int len , boolean[] sign) {
         if (len == 0) {
-            return lengthIsEven ? cur : cur.next;
+            return cur;
         }
-        ListNode x = isPalindrome(cur.next, len - 1, lengthIsEven, sign);
+        if (len == 1) {
+            return cur.next;
+        }
+        ListNode x = isPalindrome(cur.next, len - 2, sign);
         if (x.val != cur.val) {
             sign[0] = false; 
         }
