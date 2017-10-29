@@ -33,15 +33,15 @@ class Solution {
         while (low + 1 < high) {
             int mid = (high - low) / 2 + low;
             int count = 0;
+            int j = 0;
             for (int i = 1; i < nums.length; i++) {
-                int j = i - 1;
-                while (j >= 0) {
-                    if (nums[i] - nums[j] > mid) {
+                while (j < i) {
+                    if (nums[i] - nums[j] <= mid) {
                         break;
                     }
-                    j--;
+                    j++;
                 }
-                count += i - 1 - j;
+                count += i - j;
             }
             
             // if count equals k, which means that the number of distances(<= mid) is exactly k, there are two cases:
@@ -58,6 +58,7 @@ class Solution {
         }
         return high;
     }
+    
 }
 
 ```
