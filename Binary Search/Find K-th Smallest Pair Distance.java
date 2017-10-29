@@ -19,7 +19,7 @@ Note:
 0 <= nums[i] < 1000000.
 1 <= k <= len(nums) * (len(nums) - 1) / 2.
 Thoughts
-Solution 1: O(n) time and O(n) space, using .
+Solution 1: O(n * (log(n) + log(m))) time and O(1) space, using binary search and two pointers. (m = max aboslute difference, up to 1000000)
 */
 
 // Solution 1
