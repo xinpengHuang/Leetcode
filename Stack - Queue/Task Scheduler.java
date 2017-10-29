@@ -16,7 +16,12 @@ The number of tasks is in the range [1, 10000].
 The integer n is in the range [0, 100].
 
 Thoughts
-Solution 1: O(n * log (k)) time and O(?) space, using .
+Solution 1: O(n * log (k)) time and O(?) space, using PriorityQueue.
+Solution 2: O(n) time and O(?) space, using intuition and not caring about the way to place all the tasks.
+1. First found all tasks with maximum number and placed them at intervals and achieve a length.
+Case 1: If total number of tasks is less than this length. This length will be the result.
+Case 2: If total number of tasks is more than this length. number of taskd will be the result.
+
 */
 
 // Solution 1
