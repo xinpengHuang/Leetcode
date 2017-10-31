@@ -46,15 +46,16 @@ class Solution {
             iNew++;
         }
         iNew--;
-        k += iNew - i;
-        int res = helper(boxes, iNew + 1, j, 1) + k * k;
+        int kNew = k + iNew - i;
+        int res = helper(boxes, iNew + 1, j, 1) + kNew * kNew;
         
         // whenever find a boxes[n] == boxes[i], paritition and then merge.
         for (int n = iNew + 1; n <= j; n++) {
-            if (boxes[n] == boxes[i]) {
+            if (boxes[n] == boxes[i] && boxes[n - 1] != boxes[i]) {
                 int each = 0;
-                each += helper(boxes, iNew, n - 1, k + 1);
-                each += helper(boxes, n + 1, j, 1);
+                // it is important as how to partition, if we decide to deal with consecutive boxes at the front
+                each += helper(boxes, iNew + 1, n - 1, 1);
+                each += helper(boxes, n, j, kNew + 1);
                 res = Math.max(res, each);
             }  
         }
