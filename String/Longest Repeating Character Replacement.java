@@ -20,7 +20,7 @@ class Solution {
         int[] count = new int[26];
         for (int i = 0; i < s.length(); i++) {
             count[s.charAt(i) - 'A']++;
-            max = Math.max(max, count[s.charAt(i) - 'A']);
+            max = Math.max(max, count[s.charAt(i) - 'A']); // we need not guarantee that max is the max counts of char in window
             if (i - start + 1 - max > k) {
                 count[s.charAt(start) - 'A']--;
                 start++;
