@@ -30,7 +30,7 @@ class Solution {
         return len;
     }
     
-    private ListNode isPalindrome(ListNode cur, int len , boolean[] sign) {
+    private ListNode isPalindrome(ListNode cur, int len, boolean[] sign) {
         if (len == 0) {
             return cur;
         }
