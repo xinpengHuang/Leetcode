@@ -44,7 +44,7 @@ class Solution {
         int length = max - pq.peek().val;
         Node cur = pq.poll();
         
-        // if the smallest number in pq is already the last element in its list, seaching shall be terminated
+        // if the smallest number in pq is already the last element in its list, searching shall be terminated.
         while (cur.col != nums.get(cur.row).size() - 1) {
             cur.col++;
             cur.val = nums.get(cur.row).get(cur.col);
