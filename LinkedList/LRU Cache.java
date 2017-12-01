@@ -15,7 +15,7 @@ Solution 1: O(1) time for get and put operation, using doubly linked list and ha
 
 // Solution 1
 class LRUCache {
-  Node dummyFirst;
+	Node dummyFirst;
 	Node dummyLast;
 	Map<Integer, Node> map;
 	int capacity;
@@ -24,7 +24,7 @@ class LRUCache {
 		int val;
 		Node next;
 		Node pre;
-    Node(){}
+        	Node(){}
 		Node(int key, int val) {
 			this.key = key;
 			this.val = val;
@@ -34,11 +34,11 @@ class LRUCache {
 	public LRUCache(int capacity) {
 		dummyFirst = new Node();
 		dummyLast = new Node();
-    dummyFirst.next = dummyLast;
-    dummyLast.pre = dummyFirst;
+		dummyFirst.next = dummyLast;
+		dummyLast.pre = dummyFirst;
 		map = new HashMap<Integer, Node>(capacity);
 		this.capacity = capacity;
-  }
+   	}
 
 	public int get(int key) {
 		Node cur = getNode(key);
@@ -48,34 +48,34 @@ class LRUCache {
 		return cur.val;
 	}
     
-  private Node getNode(int key) {
-    Node cur = map.get(key);
+	private Node getNode(int key) {
+		Node cur = map.get(key);
 		if (cur == null) {
 			return null;
 		}
 		remove(cur);
 		insertFront(cur);
 		return cur;
-  }
+	}
 
 	public void put(int key, int value) {
 		Node cur = getNode(key);
         
-    // key exists
-    if (cur != null) {
-        cur.val = value;
-        map.put(key, cur);
-        return;
-    }
-
-    // no such key
-    if (map.size() == capacity) {
-        Node temp = remove(dummyLast.pre);
-        map.remove(temp.key);
-    }
-    cur = new Node(key, value);
-    insertFront(cur);
-    map.put(key, cur);
+        	// key exists
+		if (cur != null) {
+		    cur.val = value;
+		    map.put(key, cur);
+		    return;
+		}
+        
+		// no such key
+		if (map.size() == capacity) {
+		    Node temp = remove(dummyLast.pre);
+		    map.remove(temp.key);
+		}
+		cur = new Node(key, value);
+		insertFront(cur);
+		map.put(key, cur);
 	}
 
 	private Node remove(Node cur) {
@@ -104,4 +104,5 @@ class LRUCache {
  * int param_1 = obj.get(key);
  * obj.put(key,value);
  */
+
 ```
